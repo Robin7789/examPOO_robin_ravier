@@ -34,7 +34,17 @@ CREATE TABLE IF NOT EXISTS `motos` (
   `model` varchar(250) NOT NULL,
   `type` varchar(50) NOT NULL,
   `price` float NOT NULL,
-  `image` varchar(250) DEFAULT NULL,
+  `image` varchar(250) NOT NULL,
+  CONSTRAINT `chk_type` CHECK (
+        (
+            `type` in (
+                _utf8mb4 'Enduro',
+                _utf8mb4 'Custom',
+                _utf8mb4 'Sportive',
+                _utf8mb4 'Roadster'
+            )
+        )
+    ),
   PRIMARY KEY (`id`)
 ) ;
 COMMIT;
